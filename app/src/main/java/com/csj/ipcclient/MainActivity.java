@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 _data.writeInt(num);
                 mIBinder.transact(0x001, _data, _reply, 0);
                 _reply.readException();
+                _result = _reply.readString();
                 tvShow.setText(_result);
                 etNum.setText("");
             } catch (RemoteException e) {
